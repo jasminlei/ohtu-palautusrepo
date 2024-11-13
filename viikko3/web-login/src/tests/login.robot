@@ -19,6 +19,12 @@ Login With Incorrect Password
     Submit Credentials
     Login Should Fail With Message    Invalid username or password
 
+Login With Nonexistent Username
+    Set Username    tyhmä
+    Set Password    koira123
+    Submit Credentials
+    Login Should Fail With Message    Invalid username or password
+
 
 *** Keywords ***
 Login Should Succeed
