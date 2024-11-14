@@ -49,6 +49,22 @@ Register With Username That Is Already In Use
     Submit Registration Form
     Register Should Fail With Message    User with username kalle already exists
 
+Login After Successful Registration
+    Register With Valid Username And Password
+    Click Link    Continue to main page
+    Current User Is Logged Out
+    Go To Login Page
+    Login Page Should Be Open
+    New User Logs In
+    Login Should Succeed
+
+Login After Failed Registration
+    Register With Valid Username And Too Short Password
+    Go To Login Page
+    Login Page Should Be Open
+    New User Logs In
+    Login Does Not Succeed
+
 
 *** Keywords ***
 Register Page Should Be Open
@@ -81,3 +97,31 @@ Register Should Fail With Message
 
 Register Should Succeed
     Page Should Contain    Welcome to Ohtu Application!
+
+Current User Is Logged Out
+    Click Button    Logout
+
+New User Logs In
+    Input Text    username    sara
+    Input Password    password    OiVoi123
+    Click Button    Login
+
+Login Should Succeed
+    Page Should Contain    Ohtu Application main page
+
+Register With Valid Username And Password
+    Set Username    sara
+    Set Password    OiVoi123
+    Set Password Confirmation    OiVoi123
+    Submit Registration Form
+    Register Should Succeed
+
+Register With Valid Username And Too Short Password
+    Set Username    sara
+    Set Password    oi1
+    Set Password Confirmation    oi1
+    Submit Registration Form
+    Register Should Fail With Message    Password is too short!
+
+Login Does Not Succeed
+    Page Should Contain    Invalid username or password
