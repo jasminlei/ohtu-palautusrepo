@@ -18,6 +18,7 @@ class Kayttoliittyma:
             Komento.SUMMA: Summa(sovelluslogiikka, self._lue_syote),
             Komento.EROTUS: Erotus(sovelluslogiikka, self._lue_syote),
             Komento.NOLLAUS: Nollaus(sovelluslogiikka, self._lue_syote),
+            Komento.KUMOA: Kumoa(sovelluslogiikka, self._lue_syote),
         }
 
     def kaynnista(self):
@@ -101,3 +102,8 @@ class Erotus(Toiminto):
 class Nollaus(Toiminto):
     def suorita(self):
         self._sovelluslogiikka.nollaa()
+
+
+class Kumoa(Toiminto):
+    def suorita(self):
+        self._sovelluslogiikka.kumoa()
